@@ -1,6 +1,16 @@
-FROM mcr.microsoft.com/playwright/python:v1.54.0-jammy
+FROM ghcr.io/home-assistant/amd64-base-python:3.12
 
 WORKDIR /app
+
+RUN apk add --no-cache \
+    bash \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ttf-freefont
+
+ENV PLAYWRIGHT_BROWSERS_PATH=/usr/lib/chromium/
 
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
