@@ -1,0 +1,14 @@
+name: CookieBot
+version: "1.0"
+slug: cookiebot
+description: Cookie Clicker AI Bot (Playwright)
+
+startup: services
+boot: auto
+
+arch:
+  - amd64
+  - aarch64
+
+host_network: true
+init: false
